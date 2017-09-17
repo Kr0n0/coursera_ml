@@ -17,12 +17,23 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
 
-
-
-
-
-
-
+    % Dimensions
+    % ==========
+    % X = 97x2
+    % y = 97x1
+    % theta = 2x1
+    % hypothesis = 97x1
+ 
+    % Lectures : hypothesis = theta * X
+    % DIM 97x1 = 97x2 * 2x1 
+    hypothesis = X * theta;
+    % Lectures : delta = (1/m)*((hypothesis - y)* X')
+    % DIM 2x1 = n * 2x97 * (97x1 - 97x1) 
+    delta =  (1/m) * X' * ((hypothesis - y));
+    % Lectures : theta = theta - alpha * delta
+    % DIM 2x1 = 2x1 - n * 2x1
+    theta = theta - alpha * delta;
+    
     % ============================================================
 
     % Save the cost J in every iteration    
